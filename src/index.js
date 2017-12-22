@@ -3,6 +3,7 @@ import axios from 'axios'
 import querystring from 'querystring'
 
 export default class GDAXPublicAPI {
+  /* istanbul ignore next */
   constructor({ baseURL } = { baseURL: 'https://api.gdax.com' }) {
     this.api = axios.create({ baseURL })
   }
@@ -72,7 +73,8 @@ export default class GDAXPublicAPI {
  *  Private Function(s)
  * * * * */
 
-const getRequest = async ({ api, path, query = {} }) => {
+/* istanbul ignore next */
+async function getRequest({ api, path, query = {} }) {
   try {
     const { data } = await api.get(path + '?' + querystring.stringify(query))
     return {
